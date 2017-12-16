@@ -67,6 +67,7 @@ case $action in
                         info=$3
 			check
                 fi
+				sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
 				curl -F config=@$2 "http://${address}/controller/cli/submit.action?username=${username}&password=${password}"
                 ;;
         "info")
