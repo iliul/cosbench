@@ -67,7 +67,11 @@ case $action in
                         info=$3
 			check
                 fi
-				sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+<<<<<<< HEAD
+				sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null 2>&1
+=======
+				sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches >> /dev/null
+>>>>>>> 6d6a8ff... redirect stdout to /dev/null
 				curl -F config=@$2 "http://${address}/controller/cli/submit.action?username=${username}&password=${password}"
                 ;;
         "info")
